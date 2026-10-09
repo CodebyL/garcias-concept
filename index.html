@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Garcia's Auto Repair (website concept)</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Website concept for Garcia's Auto Repair in Bay Shore, NY: same-day repairs, wheel alignment, and parts ordered and installed. Rated 4.5 from 177 Google reviews. English and Spanish.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --s1:4px;--s2:8px;--s3:16px;--s4:24px;--s5:32px;--s6:48px;--s7:72px;--s8:112px;
+  --teal:#0d4f57;--teal-d:#083a40;--teal-dd:#062b30;--teal-l:#d9ebe9;--teal-m:#8fc3c0;
+  --coral:#f2735e;--coral-l:#ffd9cf;--coral-d:#b13f2c;
+  --off:#faf6f0;--cream:#f3ece1;--white:#fff;--ink:#13292c;--soft:#4a5d60;--line:#e3dace;
+  --head:"Barlow Semi Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--off);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6;overflow-x:hidden}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--head);margin:0;line-height:1.02;font-weight:700;letter-spacing:-.005em}
+p{margin:0}
+.wrap{max-width:1220px;margin:0 auto;padding:0 var(--s5)}
+:focus-visible{outline:3px solid var(--coral-d);outline-offset:3px;border-radius:4px}
+.dark :focus-visible{outline-color:var(--coral)}
+.skip{position:absolute;left:-999px;background:var(--white);padding:var(--s2) var(--s3);z-index:99}
+.skip:focus{left:var(--s3);top:var(--s3)}
+section{scroll-margin-top:84px}
+
+.concept{background:var(--teal-dd);color:#d9ebe9;font-size:14px;text-align:center;padding:var(--s2) var(--s3)}
+.concept a{color:var(--white);font-weight:600}
+
+header.top{position:sticky;top:0;z-index:40;background:rgba(250,246,240,.97);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.hdr{display:flex;align-items:center;gap:var(--s4);min-height:76px}
+.logo{display:flex;align-items:center;gap:var(--s3);text-decoration:none;margin-right:auto}
+.logo svg{width:48px;height:48px;flex:none}
+.logo b{display:block;font-family:var(--head);font-weight:800;font-size:25px;line-height:1;color:var(--teal)}
+.logo small{display:block;font-size:14px;color:var(--soft);margin-top:2px}
+nav#nav ul{list-style:none;margin:0;padding:0;display:flex;gap:var(--s1)}
+nav#nav a{display:flex;align-items:center;min-height:44px;padding:0 var(--s3);border-radius:999px;text-decoration:none;font-family:var(--head);font-weight:600;font-size:19px;color:var(--ink)}
+nav#nav a:hover{background:var(--teal-l)}
+.lang{display:flex;border:2px solid var(--teal);border-radius:999px;overflow:hidden;flex:none}
+.lang button{min-width:48px;min-height:44px;border:0;background:transparent;font:700 16px var(--head);letter-spacing:.06em;color:var(--teal);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--teal);color:var(--white)}
+.hdr-call{display:inline-flex;align-items:center;gap:var(--s2);min-height:48px;padding:0 var(--s4);border-radius:999px;background:var(--coral);color:var(--teal-dd);text-decoration:none;font:700 19px var(--head);white-space:nowrap}
+.hdr-call:hover{background:#ff8a76}
+.menu-btn{display:none;width:48px;height:48px;border-radius:50%;border:2px solid var(--teal);background:none;color:var(--teal);cursor:pointer}
+.menu-btn span{display:block;width:18px;height:2px;margin:4px auto;background:currentColor;transition:transform .2s}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);min-height:54px;padding:0 var(--s5);border-radius:999px;border:2px solid transparent;font:700 20px var(--head);text-decoration:none;cursor:pointer;transition:background .2s,color .2s,transform .2s}
+.btn{line-height:1.2;padding-top:var(--s2);padding-bottom:var(--s2);text-align:center}
+.btn:hover{transform:translateY(-1px)}
+.btn-coral{background:var(--coral);color:var(--teal-dd)}
+.btn-coral:hover{background:#ff8a76}
+.btn-teal{background:var(--teal);color:var(--white)}
+.btn-teal:hover{background:var(--teal-d)}
+.btn-line{border-color:var(--teal);color:var(--teal);background:transparent}
+.btn-line:hover{background:var(--teal);color:var(--white)}
+
+/* hero */
+.hero{padding:var(--s7) 0 var(--s7);position:relative}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:var(--s6);align-items:center}
+.hello{font-family:var(--head);font-weight:600;font-size:22px;color:var(--coral-d)}
+.hero h1{font-size:clamp(54px,7vw,100px);font-weight:800;color:var(--teal);margin:var(--s3) 0 var(--s4);line-height:.96}
+.hero h1 span{display:block;color:var(--ink)}
+.hero .lede{font-size:20px;color:var(--soft);max-width:30em}
+.hero .actions{display:flex;flex-wrap:wrap;gap:var(--s3);margin-top:var(--s5)}
+.owner{display:flex;align-items:center;gap:var(--s3);margin-top:var(--s5);padding-top:var(--s4);border-top:1px dashed #cdbfab;font-size:16px;color:var(--soft)}
+.owner b{color:var(--ink)}
+.owner svg{width:44px;height:44px;flex:none}
+.arch{position:relative;aspect-ratio:6/6.4;border-radius:300px 300px var(--r) var(--r);overflow:hidden;background:var(--cream);box-shadow:0 30px 60px -40px rgba(8,58,64,.6)}
+.arch svg{width:100%;height:100%}
+.laser{animation:laser 2.6s ease-in-out infinite}
+@keyframes laser{0%,100%{opacity:.25}50%{opacity:1}}
+.lift{animation:lift 7s ease-in-out infinite}
+@keyframes lift{0%,100%{transform:translateY(0)}45%,60%{transform:translateY(-22px)}}
+
+/* proof ribbon */
+.ribbon{background:var(--teal);color:var(--white)}
+.ribbon ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s4)}
+.ribbon li{display:flex;align-items:baseline;gap:var(--s2);padding:var(--s4) 0;font-size:16px;color:#d9ebe9}
+.ribbon b{font-family:var(--head);font-size:30px;font-weight:800;color:var(--white)}
+.ribbon .st{color:var(--coral);letter-spacing:2px}
+
+.sec{padding:var(--s8) 0}
+.eyebrow{font-family:var(--head);font-weight:700;font-size:18px;letter-spacing:.12em;text-transform:uppercase;color:var(--coral-d);margin-bottom:var(--s3)}
+.sec h2{font-size:clamp(40px,5vw,68px);font-weight:800;color:var(--teal)}
+.intro{font-size:19px;color:var(--soft);max-width:36em;margin-top:var(--s4)}
+
+/* same day path */
+.path{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4);margin-top:var(--s6);list-style:none;padding:0}
+.path::before{content:"";position:absolute;left:6%;right:6%;top:44px;border-top:4px dashed var(--teal-m)}
+.path li{position:relative;text-align:center;padding:0 var(--s2)}
+.path .ico{width:88px;height:88px;margin:0 auto var(--s3);border-radius:50%;background:var(--white);border:3px solid var(--teal);display:grid;place-items:center}
+.path .ico svg{width:46px;height:46px}
+.path li:last-child .ico{background:var(--coral);border-color:var(--coral)}
+.path h3{font-size:26px;color:var(--ink);margin-bottom:var(--s2)}
+.path p{font-size:16px;color:var(--soft)}
+
+/* services */
+.svc{background:var(--cream)}
+.svc-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:var(--s6);align-items:start;margin-top:var(--s6)}
+.ticket{background:var(--white);border-radius:var(--r);box-shadow:0 2px 0 var(--line),0 24px 50px -36px rgba(8,58,64,.5);overflow:hidden;position:relative}
+.ticket-h{display:flex;justify-content:space-between;align-items:center;gap:var(--s3);background:var(--teal);color:var(--white);padding:var(--s4) var(--s5);font-family:var(--head)}
+.ticket-h b{font-size:26px;font-weight:800}
+.ticket-h span{font-size:16px;color:#bfe0dd;letter-spacing:.08em;text-transform:uppercase}
+.ticket ol{list-style:none;margin:0;padding:var(--s2) var(--s5) var(--s4)}
+.ticket li{display:grid;grid-template-columns:40px 1fr;gap:var(--s3);padding:var(--s4) 0;border-bottom:1px dashed #d8cdbd}
+.ticket li:last-child{border-bottom:0}
+.check{width:36px;height:36px;border-radius:8px;border:2.5px solid var(--teal);display:grid;place-items:center;margin-top:2px}
+.check svg{width:22px;height:22px}
+.ticket h3{font-size:27px;color:var(--ink)}
+.ticket p{font-size:17px;color:var(--soft);margin-top:var(--s1)}
+.ticket::after{content:"";position:absolute;left:0;right:0;bottom:0;height:10px;background:radial-gradient(circle at 10px 10px,var(--cream) 6px,transparent 7px) 0 0/20px 20px repeat-x}
+.align{background:var(--teal-d);color:var(--white);border-radius:var(--r);padding:var(--s5)}
+.align h3{font-size:32px;margin-bottom:var(--s2)}
+.align p{color:#cfe5e3;font-size:17px}
+.align svg{width:100%;height:auto;margin:var(--s4) 0}
+.toggle-row{display:flex;gap:var(--s2);flex-wrap:wrap}
+.toggle-row button{min-height:44px;padding:0 var(--s4);border-radius:999px;border:2px solid var(--teal-m);background:transparent;color:var(--white);font:600 17px var(--head);cursor:pointer}
+.toggle-row button[aria-pressed="true"]{background:var(--coral);border-color:var(--coral);color:var(--teal-dd)}
+
+/* noise helper */
+.noise{background:var(--teal-dd);color:var(--white)}
+.noise h2{color:var(--white)}
+.noise .eyebrow{color:var(--coral)}
+.noise .intro{color:#cfe5e3}
+.noise-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);margin-top:var(--s6);align-items:start}
+.sounds{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
+.sound{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s3);padding:var(--s4);min-height:150px;border-radius:var(--r);background:var(--teal-d);border:2px solid #1c6670;color:var(--white);cursor:pointer;text-align:left;font:inherit;transition:border-color .2s,background .2s}
+.sound:hover{border-color:var(--teal-m)}
+.sound[aria-checked="true"]{background:var(--white);color:var(--ink);border-color:var(--coral)}
+.sound svg{width:100%;height:44px}
+.sound b{font-family:var(--head);font-size:24px;line-height:1.1}
+.sound span{font-size:15px;opacity:.85}
+.when{margin-top:var(--s4)}
+.when p{font-weight:600;margin-bottom:var(--s2)}
+.chips{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.chips button{min-height:44px;padding:0 var(--s4);border-radius:999px;border:2px solid #2b7c86;background:transparent;color:var(--white);font:500 16px var(--body);cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--teal-m);border-color:var(--teal-m);color:var(--teal-dd);font-weight:600}
+.result{background:var(--off);color:var(--ink);border-radius:var(--r);padding:var(--s5);min-height:100%;position:relative}
+.result .tag{font-family:var(--head);font-weight:700;font-size:16px;letter-spacing:.1em;text-transform:uppercase;color:var(--coral-d)}
+.result h3{font-size:36px;color:var(--teal);margin:var(--s2) 0 var(--s4)}
+.result ol{margin:0;padding:0;list-style:none;counter-reset:c}
+.result li{counter-increment:c;display:grid;grid-template-columns:36px 1fr;gap:var(--s3);padding:var(--s3) 0;border-top:1px solid var(--line)}
+.result li::before{content:counter(c);width:32px;height:32px;border-radius:50%;background:var(--teal);color:var(--white);display:grid;place-items:center;font:700 16px var(--head)}
+.result li b{display:block}
+.result li span{font-size:16px;color:var(--soft)}
+.result .tipbox{margin-top:var(--s4);padding:var(--s3) var(--s4);background:var(--coral-l);border-radius:10px;font-size:16px}
+.result .btn{margin-top:var(--s4)}
+.fine{font-size:14px;margin-top:var(--s3);opacity:.9}
+.noise .fine{color:#cfe5e3}
+
+/* booking add-on */
+.book{background:var(--off)}
+.addon{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s3);margin-bottom:var(--s5)}
+.addon .lbl{font-family:var(--head);font-weight:700;font-size:17px;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--white);padding:var(--s2) var(--s3);border-radius:6px}
+.addon .price{font-family:var(--head);font-weight:800;font-size:24px;color:var(--teal)}
+.book-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:var(--s6);align-items:start}
+.inc{margin-top:var(--s4);padding:0;list-style:none}
+.inc li{display:flex;gap:var(--s3);padding:var(--s2) 0;font-size:17px}
+.inc li::before{content:"";flex:none;width:12px;height:12px;margin-top:9px;border-radius:50%;background:var(--coral)}
+.sample-note{margin-top:var(--s4);padding:var(--s3) var(--s4);border-left:4px solid var(--coral);background:var(--white);font-size:15px;color:var(--soft);border-radius:0 8px 8px 0}
+.sample-note b{color:var(--ink)}
+.planner{background:var(--white);border-radius:20px;padding:var(--s5);box-shadow:0 2px 0 var(--line),0 30px 60px -40px rgba(8,58,64,.55)}
+.step-h{display:flex;align-items:center;gap:var(--s3);font-family:var(--head);font-weight:700;font-size:22px;color:var(--teal);margin:0 0 var(--s3)}
+.step-h i{font-style:normal;width:32px;height:32px;border-radius:50%;background:var(--teal-l);display:grid;place-items:center;font-size:17px}
+fieldset{border:0;margin:0 0 var(--s5);padding:0;min-width:0}
+legend{padding:0}
+.svc-pick{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s2)}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;width:1px;height:1px}
+.opt label{display:flex;align-items:center;min-height:52px;padding:var(--s2) var(--s3);border:2px solid var(--line);border-radius:12px;cursor:pointer;font-weight:500;font-size:17px;background:var(--off)}
+.opt input:checked+label{border-color:var(--teal);background:var(--teal-l);font-weight:600}
+.opt input:focus-visible+label{outline:3px solid var(--coral-d);outline-offset:2px}
+.days{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--s2)}
+.days label{flex-direction:column;justify-content:center;text-align:center;line-height:1.15;min-height:72px;padding:var(--s2)}
+.days label small{font-size:13px;color:var(--soft);text-transform:uppercase;letter-spacing:.06em}
+.days label b{font-family:var(--head);font-size:26px}
+.times{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s2)}
+.times label{justify-content:center}
+.opt input:disabled+label{opacity:.45;text-decoration:line-through;cursor:not-allowed}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
+.f{display:flex;flex-direction:column;gap:var(--s2)}
+.f label{font-weight:600;font-size:16px}
+.f input,.f textarea,.f select{font:inherit;font-size:17px;min-height:52px;padding:var(--s3);border-radius:12px;border:2px solid #d8cdbd;background:var(--off);color:var(--ink);width:100%}
+.f textarea{min-height:110px;resize:vertical}
+.f input:focus,.f textarea:focus,.f select:focus{outline:none;border-color:var(--teal);background:var(--white);box-shadow:0 0 0 3px rgba(13,79,87,.2)}
+[aria-invalid="true"]{border-color:var(--coral-d)!important;background:#fff3f0!important}
+.form-msg{color:var(--coral-d);font-weight:600;margin:var(--s3) 0 0}
+.form-msg:empty{display:none}
+.submit-row{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2);margin-top:var(--s4)}
+.demo-note{font-size:14px;color:var(--soft)}
+.done{background:var(--teal);color:var(--white);border-radius:20px;padding:var(--s6)}
+.done h3{font-size:44px;margin-bottom:var(--s3)}
+.done p{color:#d9ebe9;margin-bottom:var(--s3)}
+.done .summary{background:var(--teal-d);border-radius:12px;padding:var(--s3) var(--s4);margin-bottom:var(--s4);font-size:17px}
+.done .summary:empty{display:none}
+
+/* reviews */
+.reviews{background:var(--cream);overflow:hidden}
+.bubbles{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--s4);margin-top:var(--s6)}
+.bub{position:relative;background:var(--white);border-radius:24px;padding:var(--s5);box-shadow:0 2px 0 var(--line)}
+.bub::after{content:"";position:absolute;bottom:-18px;left:48px;border:18px solid transparent;border-top-color:var(--white);border-bottom:0}
+.bub blockquote{margin:0;font-family:var(--head);font-weight:600;font-size:clamp(26px,2.4vw,34px);line-height:1.15;color:var(--ink)}
+.bub cite{display:block;margin-top:var(--s3);font-style:normal;font-size:16px;color:var(--soft)}
+.bub .st{color:var(--coral-d);letter-spacing:2px}
+.b1{grid-column:1/8}
+.b2{grid-column:6/13;background:var(--teal);margin-top:var(--s3)}
+.b2::after{border-top-color:var(--teal);left:auto;right:56px}
+.b2 blockquote{color:var(--white)}
+.b2 cite{color:#cfe5e3}
+.b2 .st{color:var(--coral)}
+.b3{grid-column:2/9;background:var(--coral);margin-top:var(--s3)}
+.b3::after{border-top-color:var(--coral)}
+.b3 blockquote,.b3 cite{color:var(--teal-dd)}
+.b3 .st{color:var(--teal-dd)}
+.rev-sum{grid-column:9/13;align-self:center;padding:var(--s4)}
+.rev-sum b{display:block;font-family:var(--head);font-size:88px;font-weight:800;line-height:.9;color:var(--teal)}
+.rev-sum p{color:var(--soft);font-size:17px}
+
+/* visit */
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);align-items:start}
+.card{background:var(--white);border-radius:20px;padding:var(--s5);box-shadow:0 2px 0 var(--line)}
+.addr{font-family:var(--head);font-weight:800;font-size:clamp(36px,4vw,54px);line-height:1;color:var(--teal);margin:var(--s3) 0 var(--s4)}
+.facts{display:grid;gap:var(--s3);margin:0}
+.facts div{display:grid;grid-template-columns:120px 1fr;gap:var(--s3);padding-top:var(--s3);border-top:1px solid var(--line)}
+.facts dt{font-weight:600;color:var(--soft);font-size:16px}
+.facts dd{margin:0}
+.facts a{color:var(--coral-d);font-weight:600}
+.street{margin-top:var(--s4);border-radius:14px;overflow:hidden;background:var(--teal-l)}
+.qform{display:grid;gap:var(--s3)}
+
+footer.site{background:var(--teal-dd);color:#cfe5e3;padding:var(--s7) 0 var(--s6);font-size:15px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:var(--s6);padding-bottom:var(--s5);border-bottom:1px solid #1c5a62}
+footer.site h3{color:var(--white);font-size:24px;margin-bottom:var(--s2)}
+footer.site a{color:var(--white)}
+.disc{margin-top:var(--s5);font-size:14px;color:#b7d3d1;max-width:72em}
+.disc p+p{margin-top:var(--s2)}
+.sticky-call{display:none}
+
+@media (max-width:1060px){
+  nav#nav a{padding:0 var(--s2);font-size:18px}
+}
+@media (max-width:980px){
+  .hero-grid,.svc-grid,.noise-grid,.book-grid,.visit-grid{grid-template-columns:1fr}
+  .arch{max-width:560px;width:100%;margin:0 auto}
+  .menu-btn{display:block}
+  .hdr{position:relative;gap:var(--s3)}
+  nav#nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--off);border-bottom:1px solid var(--line);box-shadow:0 20px 30px -20px rgba(0,0,0,.2)}
+  nav#nav.open{display:block}
+  nav#nav ul{flex-direction:column;padding:var(--s2) var(--s4) var(--s4)}
+  nav#nav a{min-height:52px;border-radius:10px;font-size:20px}
+  .hdr-call{display:none}
+  .bubbles{grid-template-columns:1fr}
+  .b1,.b2,.b3,.rev-sum{grid-column:1/-1}
+  .path{grid-template-columns:1fr 1fr;row-gap:var(--s5)}
+  .path::before{display:none}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  body{font-size:17px;padding-bottom:78px}
+  .wrap{padding:0 var(--s3)}
+  .sec{padding:var(--s7) 0}
+  .hero{padding:var(--s5) 0 var(--s6)}
+  .hero .lede{font-size:18px}
+  .btn{width:100%}
+  .logo svg{width:40px;height:40px}
+  .logo b{font-size:21px}
+  .logo small{font-size:13px}
+  .lang button{min-width:44px}
+  .ribbon ul{display:grid;grid-template-columns:1fr 1fr;gap:0 var(--s3)}
+  .ribbon li{flex-direction:column;gap:0;padding:var(--s3) 0}
+  .path{grid-template-columns:1fr;text-align:left}
+  .path li{display:grid;grid-template-columns:72px 1fr;gap:var(--s3);text-align:left}
+  .path .ico{width:64px;height:64px;margin:0}
+  .path .ico svg{width:34px;height:34px}
+  .ticket-h,.ticket ol{padding-left:var(--s4);padding-right:var(--s4)}
+  .ticket h3{font-size:24px}
+  .align,.result,.planner,.card{padding:var(--s4)}
+  .sounds{grid-template-columns:1fr 1fr;gap:var(--s2)}
+  .sound{padding:var(--s3);min-height:130px}
+  .sound b{font-size:20px}
+  .result h3{font-size:30px}
+  .svc-pick{grid-template-columns:1fr}
+  .days{grid-template-columns:repeat(5,1fr);gap:var(--s1)}
+  .days label{padding:var(--s1);min-height:68px}
+  .days label b{font-size:22px}
+  .days label small{font-size:11px}
+  .times{grid-template-columns:repeat(2,1fr)}
+  .two{grid-template-columns:1fr}
+  .bub{padding:var(--s4)}
+  .rev-sum b{font-size:72px}
+  .facts div{grid-template-columns:1fr;gap:var(--s1)}
+  .foot{grid-template-columns:1fr}
+  .done{padding:var(--s4)}
+  .sticky-call{display:flex;position:fixed;left:var(--s3);right:var(--s3);bottom:var(--s3);z-index:50;min-height:56px;border-radius:999px;align-items:center;justify-content:center;background:var(--coral);color:var(--teal-dd);text-decoration:none;font:700 21px var(--head);box-shadow:0 12px 30px rgba(6,43,48,.35)}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+<div class="concept">Website concept by <a href="https://www.lisettecolon.com">Lisette Colon</a>. A sample, not the official Garcia's Auto Repair site.</div>
+
+<header class="top">
+  <div class="wrap hdr">
+    <a class="logo" href="#top" aria-label="Garcia's Auto Repair, home">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#0d4f57"/><circle cx="24" cy="24" r="15" fill="none" stroke="#f2735e" stroke-width="4" stroke-dasharray="70 30" transform="rotate(-40 24 24)"/><path d="M24 24 H34" stroke="#f2735e" stroke-width="4" stroke-linecap="round"/><circle cx="24" cy="24" r="3.5" fill="#faf6f0"/></svg>
+      <span><b>Garcia's Auto Repair</b><small>Bay Shore, NY</small></span>
+    </a>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#services" data-i18n="nav1">Services</a></li>
+        <li><a href="#noise" data-i18n="nav2">Noise helper</a></li>
+        <li><a href="#book" data-i18n="nav3">Book</a></li>
+        <li><a href="#reviews" data-i18n="nav4">Reviews</a></li>
+        <li><a href="#visit" data-i18n="nav5">Visit</a></li>
+      </ul>
+    </nav>
+    <div class="lang" role="group" aria-label="Language / Idioma">
+      <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
+      <button type="button" data-lang="es" aria-pressed="false" lang="es">ES</button>
+    </div>
+    <a class="hdr-call" href="tel:+16316665077">(631) 666-5077</a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="hello" data-i18n="hello">Brentwood Road, Bay Shore</p>
+      <h1 data-i18n="h1">Fixed today. <span>At a fair price.</span></h1>
+      <p class="lede" data-i18n="lede">Same-day repairs, wheel alignments, and the parts your car needs, ordered and installed. Friendly people, fair prices, and work done on time.</p>
+      <div class="actions">
+        <a class="btn btn-coral" href="tel:+16316665077" data-i18n="call">Call (631) 666-5077</a>
+        <a class="btn btn-line" href="#book" data-i18n="bookbtn">Book a visit</a>
+      </div>
+      <p class="owner"><svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#d9ebe9"/><circle cx="22" cy="17" r="7" fill="#0d4f57"/><path d="M8 38 Q22 22 36 38" fill="#0d4f57"/></svg><span data-i18n="owner"><b>Ask for Julio.</b> Customers call him the friendly owner, and the best.</span></p>
+    </div>
+    <div class="arch" aria-hidden="true">
+      <svg viewBox="0 0 600 640" preserveAspectRatio="xMidYMid slice">
+        <rect width="600" height="640" fill="#f3ece1"/>
+        <circle cx="430" cy="150" r="120" fill="#f2735e" opacity=".9"/>
+        <rect x="0" y="210" width="600" height="430" fill="#e7dccb"/>
+        <g fill="#d9ccb7"><rect x="0" y="230" width="600" height="6"/><rect x="0" y="262" width="600" height="6"/><rect x="0" y="294" width="600" height="6"/></g>
+        <rect x="40" y="150" width="520" height="70" rx="8" fill="#0d4f57"/>
+        <text x="300" y="198" text-anchor="middle" font-family="Barlow Semi Condensed, Arial Narrow, sans-serif" font-weight="800" font-size="40" fill="#faf6f0" letter-spacing="2">GARCIA'S AUTO REPAIR</text>
+        <rect x="70" y="250" width="460" height="390" fill="#083a40"/>
+        <g fill="#0d4f57"><rect x="70" y="250" width="460" height="22"/><rect x="70" y="276" width="460" height="22"/><rect x="70" y="302" width="460" height="10"/></g>
+        <rect x="70" y="312" width="460" height="328" fill="#11444b"/>
+        <rect x="70" y="600" width="460" height="40" fill="#0b3439"/>
+        <g class="laser"><path d="M150,560 L520,520" stroke="#f2735e" stroke-width="3" stroke-dasharray="10 8"/><path d="M450,560 L80,520" stroke="#f2735e" stroke-width="3" stroke-dasharray="10 8"/></g>
+        <rect x="112" y="380" width="18" height="230" fill="#f2735e"/><rect x="470" y="380" width="18" height="230" fill="#f2735e"/>
+        <g class="lift">
+          <rect x="120" y="500" width="360" height="12" rx="4" fill="#c9d5d4"/>
+          <path d="M150,500 L150,452 Q152,438 168,434 L222,428 L262,388 Q272,378 290,378 L380,378 Q396,378 408,390 L440,428 L452,432 Q466,436 466,452 L466,500 Z" fill="#faf6f0"/>
+          <path d="M232,428 L268,394 Q274,388 284,388 L326,388 L326,428 Z M336,388 L380,388 Q390,388 398,396 L428,428 L336,428 Z" fill="#8fc3c0"/>
+          <path d="M150,462 H466" stroke="#f2735e" stroke-width="5"/>
+          <circle cx="206" cy="506" r="30" fill="#13292c"/><circle cx="206" cy="506" r="13" fill="#c9d5d4"/>
+          <circle cx="408" cy="506" r="30" fill="#13292c"/><circle cx="408" cy="506" r="13" fill="#c9d5d4"/>
+        </g>
+        <g><ellipse cx="560" cy="600" rx="30" ry="9" fill="#13292c"/><rect x="530" y="560" width="60" height="40" fill="#13292c"/><ellipse cx="560" cy="560" rx="30" ry="9" fill="#2a3c3f"/><rect x="530" y="520" width="60" height="40" fill="#13292c"/><ellipse cx="560" cy="520" rx="30" ry="9" fill="#2a3c3f"/><ellipse cx="560" cy="520" rx="12" ry="4" fill="#0b1b1d"/></g>
+        <g transform="translate(20,560)"><rect width="36" height="70" rx="4" fill="#f2735e"/><rect x="6" y="10" width="24" height="10" rx="2" fill="#faf6f0"/><rect x="6" y="26" width="24" height="10" rx="2" fill="#faf6f0"/></g>
+        <rect x="0" y="630" width="600" height="10" fill="#cdbfab"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="ribbon" aria-label="At a glance">
+  <div class="wrap">
+    <ul>
+      <li><b>4.5</b><span class="st" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9734;</span><span data-i18n="p1">on Google</span></li>
+      <li><b>177</b><span data-i18n="p2">Google reviews</span></li>
+      <li><b data-i18n="p3b">Same day</b><span data-i18n="p3">repairs</span></li>
+      <li><b>6 PM</b><span data-i18n="p4">closing time</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="sameday">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="sd-e">Same-day repairs</p>
+    <h2 data-i18n="sd-h">Drop it off. Drive it home.</h2>
+    <p class="intro" data-i18n="sd-p">When the job and the parts allow it, Garcia's gets you back on the road the same day. Here is how a visit goes.</p>
+    <ol class="path">
+      <li><div class="ico"><svg viewBox="0 0 46 46" aria-hidden="true"><path d="M6 30 L6 22 L12 14 H32 L40 22 V30 Z" fill="none" stroke="#0d4f57" stroke-width="3" stroke-linejoin="round"/><circle cx="14" cy="32" r="5" fill="#0d4f57"/><circle cx="32" cy="32" r="5" fill="#0d4f57"/></svg></div><div><h3 data-i18n="s1h">Bring it in</h3><p data-i18n="s1p">Call ahead or book a time, then drop off the car on Brentwood Rd.</p></div></li>
+      <li><div class="ico"><svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="20" cy="20" r="11" fill="none" stroke="#0d4f57" stroke-width="3"/><path d="M28 28 L39 39" stroke="#0d4f57" stroke-width="4" stroke-linecap="round"/></svg></div><div><h3 data-i18n="s2h">We find the problem</h3><p data-i18n="s2p">A mechanic checks it over and figures out what it needs.</p></div></li>
+      <li><div class="ico"><svg viewBox="0 0 46 46" aria-hidden="true"><path d="M10 24 L19 33 L37 13" fill="none" stroke="#0d4f57" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><h3 data-i18n="s3h">You say yes</h3><p data-i18n="s3p">You hear the price first. Parts get ordered and installed.</p></div></li>
+      <li><div class="ico"><svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="15" fill="none" stroke="#062b30" stroke-width="3"/><path d="M23 14 V23 L30 27" stroke="#062b30" stroke-width="3" stroke-linecap="round" fill="none"/></svg></div><div><h3 data-i18n="s4h">Drive it home</h3><p data-i18n="s4p">Pick it up before 6 PM. Same day when the job allows.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec svc" id="services">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="sv-e">What we fix</p>
+    <h2 data-i18n="sv-h">One shop for the everyday stuff.</h2>
+    <div class="svc-grid">
+      <div class="ticket">
+        <div class="ticket-h"><b data-i18n="wo">Work order</b><span>Garcia's</span></div>
+        <ol>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 22 22"><path d="M4 11 L9 16 L18 6" fill="none" stroke="#f2735e" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h3 data-i18n="t1h">Same-day repairs</h3><p data-i18n="t1p">Common repairs finished the same day, when parts are on hand or can come in quickly.</p></div></li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 22 22"><path d="M4 11 L9 16 L18 6" fill="none" stroke="#f2735e" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h3 data-i18n="t2h">Wheel alignment</h3><p data-i18n="t2p">Car pulling to one side, or the steering wheel sitting crooked? An alignment sets the wheels straight again.</p></div></li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 22 22"><path d="M4 11 L9 16 L18 6" fill="none" stroke="#f2735e" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h3 data-i18n="t3h">Parts ordered and installed</h3><p data-i18n="t3p">No running around for parts. The shop orders what your car needs and puts it in.</p></div></li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 22 22"><path d="M4 11 L9 16 L18 6" fill="none" stroke="#f2735e" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h3 data-i18n="t4h">Brakes, noises and general repair</h3><p data-i18n="t4p">Squeals, clunks and warning lights. Bring it in and get a straight answer.</p></div></li>
+        </ol>
+      </div>
+      <div class="align">
+        <h3 data-i18n="al-h">Why alignment matters</h3>
+        <p data-i18n="al-p">Seen from above, wheels that point in or out wear tires fast and pull the car. Tap to compare.</p>
+        <svg viewBox="0 0 360 300" role="img" aria-label="Top view of a car showing wheel angles">
+          <rect x="110" y="30" width="140" height="240" rx="40" fill="#0d4f57" stroke="#8fc3c0" stroke-width="2"/>
+          <rect x="130" y="80" width="100" height="60" rx="12" fill="#062b30"/>
+          <rect x="130" y="170" width="100" height="50" rx="12" fill="#062b30"/>
+          <g id="wFL" transform="rotate(0 100 80)"><rect x="88" y="54" width="24" height="52" rx="6" fill="#faf6f0"/></g>
+          <g id="wFR" transform="rotate(0 260 80)"><rect x="248" y="54" width="24" height="52" rx="6" fill="#faf6f0"/></g>
+          <rect x="88" y="194" width="24" height="52" rx="6" fill="#faf6f0"/>
+          <rect x="248" y="194" width="24" height="52" rx="6" fill="#faf6f0"/>
+          <g id="lines" stroke="#f2735e" stroke-width="2.5" stroke-dasharray="6 6">
+            <line id="lL" x1="100" y1="10" x2="100" y2="150"/><line id="lR" x1="260" y1="10" x2="260" y2="150"/>
+          </g>
+          <text id="alTxt" x="180" y="292" text-anchor="middle" font-family="Barlow, sans-serif" font-size="16" fill="#faf6f0">Straight: wheels point ahead</text>
+        </svg>
+        <div class="toggle-row" role="group" aria-label="Alignment view">
+          <button type="button" data-al="0" aria-pressed="true" data-i18n="al1">Aligned</button>
+          <button type="button" data-al="1" aria-pressed="false" data-i18n="al2">Toe in</button>
+          <button type="button" data-al="2" aria-pressed="false" data-i18n="al3">Toe out</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec noise dark" id="noise">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="nz-e">Sample tool</p>
+    <h2 data-i18n="nz-h">What's that noise?</h2>
+    <p class="intro" data-i18n="nz-p">Pick the sound that matches yours. You'll get a few common causes to mention when you call. It is general guidance, not a diagnosis.</p>
+    <div class="noise-grid">
+      <div>
+        <div class="sounds" role="radiogroup" aria-label="Type of noise">
+          <button class="sound" role="radio" aria-checked="true" data-n="squeal"><svg viewBox="0 0 200 44" aria-hidden="true"><path d="M0 22 Q5 6 10 22 T20 22 T30 22 T40 22 T50 22 T60 22 T70 22 T80 22 T90 22 T100 22 T110 22 T120 22 T130 22 T140 22 T150 22 T160 22 T170 22 T180 22 T190 22 T200 22" fill="none" stroke="currentColor" stroke-width="2.5"/></svg><b data-i18n="n1">Squeal when braking</b><span data-i18n="n1s">High pitched, at stops</span></button>
+          <button class="sound" role="radio" aria-checked="false" data-n="clunk"><svg viewBox="0 0 200 44" aria-hidden="true"><path d="M0 22 H30 L36 4 L42 40 L48 22 H100 L106 4 L112 40 L118 22 H170 L176 4 L182 40 L188 22 H200" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></svg><b data-i18n="n2">Clunk over bumps</b><span data-i18n="n2s">A knock from underneath</span></button>
+          <button class="sound" role="radio" aria-checked="false" data-n="grind"><svg viewBox="0 0 200 44" aria-hidden="true"><path d="M0 22 L6 12 L10 30 L15 8 L20 34 L24 16 L29 28 L34 6 L38 36 L43 14 L48 30 L52 10 L57 34 L62 18 L66 28 L71 8 L76 36 L80 12 L85 30 L90 6 L94 34 L99 16 L104 28 L108 10 L113 34 L118 14 L122 30 L127 8 L132 36 L136 16 L141 28 L146 6 L150 34 L155 12 L160 30 L164 8 L169 34 L174 16 L178 28 L183 10 L188 32 L192 14 L196 28 L200 22" fill="none" stroke="currentColor" stroke-width="2"/></svg><b data-i18n="n3">Grinding</b><span data-i18n="n3s">Metal on metal</span></button>
+          <button class="sound" role="radio" aria-checked="false" data-n="tick"><svg viewBox="0 0 200 44" aria-hidden="true"><g fill="currentColor"><rect x="8" y="12" width="4" height="20" rx="2"/><rect x="32" y="12" width="4" height="20" rx="2"/><rect x="56" y="12" width="4" height="20" rx="2"/><rect x="80" y="12" width="4" height="20" rx="2"/><rect x="104" y="12" width="4" height="20" rx="2"/><rect x="128" y="12" width="4" height="20" rx="2"/><rect x="152" y="12" width="4" height="20" rx="2"/><rect x="176" y="12" width="4" height="20" rx="2"/></g><path d="M0 22 H200" stroke="currentColor" stroke-width="1" opacity=".4"/></svg><b data-i18n="n4">Ticking</b><span data-i18n="n4s">Steady, speeds up with the engine</span></button>
+        </div>
+        <div class="when">
+          <p data-i18n="whenq">When is it worst?</p>
+          <div class="chips" role="group" aria-label="When">
+            <button type="button" data-w="cold" aria-pressed="false" data-i18n="w1">Cold mornings</button>
+            <button type="button" data-w="turn" aria-pressed="false" data-i18n="w2">When turning</button>
+            <button type="button" data-w="speed" aria-pressed="false" data-i18n="w3">At higher speeds</button>
+            <button type="button" data-w="always" aria-pressed="false" data-i18n="w4">All the time</button>
+          </div>
+        </div>
+      </div>
+      <div class="result" aria-live="polite">
+        <p class="tag" data-i18n="likely">Common causes</p>
+        <h3 id="nzTitle">Squeal when braking</h3>
+        <ol id="nzList"></ol>
+        <p class="tipbox" id="nzTip"></p>
+        <a class="btn btn-teal" href="#book" id="nzBook" data-i18n="nzbook">Book a check for this</a>
+        <p class="fine" style="color:var(--soft)" data-i18n="nzfine">General information only. A mechanic needs to see the car to say what is wrong. If brakes feel soft or the car pulls hard, stop driving and call.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec book" id="book">
+  <div class="wrap">
+    <div class="addon"><span class="lbl" data-i18n="ad-l">Featured add-on in this concept</span><span class="price" data-i18n="ad-p">Online booking, from $400</span></div>
+    <div class="book-grid">
+      <div>
+        <h2 data-i18n="bk-h">Pick a time that works for you.</h2>
+        <p class="intro" data-i18n="bk-p">Customers choose the service, the day and the time, from their phone, in English or Spanish. The shop gets a clean request instead of a missed call.</p>
+        <ul class="inc">
+          <li data-i18n="i1">Service, day and time picker that fits the shop's real hours</li>
+          <li data-i18n="i2">Booked times close automatically so nobody double books</li>
+          <li data-i18n="i3">Confirmation text or email to the customer</li>
+          <li data-i18n="i4">Request sent to the shop's email or phone</li>
+          <li data-i18n="i5">Works in English and Spanish</li>
+        </ul>
+        <p class="sample-note" data-i18n="bk-s"><b>Sample feature.</b> Days and time slots here are made up for the demo, and some are shown as taken. Nothing is booked. A finished version would use the shop's real schedule.</p>
+      </div>
+      <div>
+        <form class="demo planner" id="bookForm" novalidate>
+          <fieldset>
+            <legend class="step-h"><i>1</i><span data-i18n="b1">Service</span></legend>
+            <div class="svc-pick">
+              <div class="opt"><input type="radio" name="svc" id="sv1" value="General repair" required><label for="sv1" data-i18n="sv1">General repair</label></div>
+              <div class="opt"><input type="radio" name="svc" id="sv2" value="Wheel alignment"><label for="sv2" data-i18n="sv2">Wheel alignment</label></div>
+              <div class="opt"><input type="radio" name="svc" id="sv3" value="Brakes or noise check"><label for="sv3" data-i18n="sv3">Brakes or noise check</label></div>
+              <div class="opt"><input type="radio" name="svc" id="sv4" value="Parts install"><label for="sv4" data-i18n="sv4">Parts install</label></div>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend class="step-h"><i>2</i><span data-i18n="b2">Day</span></legend>
+            <div class="days" id="days"></div>
+          </fieldset>
+          <fieldset>
+            <legend class="step-h"><i>3</i><span data-i18n="b3">Time (sample slots)</span></legend>
+            <div class="times" id="times"></div>
+          </fieldset>
+          <fieldset style="margin-bottom:0">
+            <legend class="step-h"><i>4</i><span data-i18n="b4">Your info</span></legend>
+            <div class="two">
+              <div class="f"><label for="bn" data-i18n="fn">Name</label><input id="bn" name="name" required autocomplete="name"></div>
+              <div class="f"><label for="bp" data-i18n="fp">Phone</label><input id="bp" name="phone" type="tel" required autocomplete="tel"></div>
+              <div class="f" style="grid-column:1/-1"><label for="bc" data-i18n="fc">Car (year, make, model)</label><input id="bc" name="car" required></div>
+            </div>
+          </fieldset>
+          <p class="form-msg" role="alert"></p>
+          <div class="submit-row">
+            <button class="btn btn-coral" type="submit" data-i18n="bsub">Request this time</button>
+            <p class="demo-note" data-i18n="demo">Demo form. This is a website concept. Nothing is sent or saved.</p>
+          </div>
+        </form>
+        <div class="done" hidden tabindex="-1">
+          <h3 data-i18n="dn-h">Demo complete.</h3>
+          <div class="summary"></div>
+          <p data-i18n="dn-p">This is a website concept. Nothing was sent or saved, and no appointment was booked.</p>
+          <button class="btn btn-coral" type="button" data-i18n="again">Start over</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="rv-e">From Google reviews</p>
+    <h2 data-i18n="rv-h">What the neighbors say.</h2>
+    <div class="bubbles">
+      <figure class="bub b1" style="margin:0"><blockquote lang="en">Excellent service and friendly staff Prices are comparable</blockquote><figcaption><cite>Google review</cite></figcaption></figure>
+      <figure class="bub b2" style="margin:0"><blockquote lang="en">Very fair in pricing and got work done in a timely manner.</blockquote><figcaption><cite>Google review</cite></figcaption></figure>
+      <figure class="bub b3" style="margin:0"><blockquote lang="en">Good price, friendly owner, Julio is the best</blockquote><figcaption><cite>Google review</cite></figcaption></figure>
+      <div class="rev-sum"><b>4.5</b><p data-i18n="rv-s">Average from 177 Google reviews. Quotes are shown in their original English.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="visit">
+  <div class="wrap visit-grid">
+    <div class="card">
+      <p class="eyebrow" data-i18n="vs-e">Visit the shop</p>
+      <p class="addr">150 Brentwood Rd<br>Bay Shore, NY 11706</p>
+      <dl class="facts">
+        <div><dt data-i18n="vp">Phone</dt><dd><a href="tel:+16316665077">(631) 666-5077</a></dd></div>
+        <div><dt data-i18n="vh">Hours</dt><dd data-i18n="vhd">Closes at 6 PM. Call for days and opening time.</dd></div>
+        <div><dt data-i18n="va">Ask for</dt><dd>Julio</dd></div>
+      </dl>
+      <div class="street" aria-hidden="true">
+        <svg viewBox="0 0 520 170">
+          <rect width="520" height="170" fill="#d9ebe9"/>
+          <rect x="0" y="96" width="520" height="40" fill="#8fc3c0"/>
+          <path d="M0 116 H520" stroke="#faf6f0" stroke-width="3" stroke-dasharray="18 14"/>
+          <text x="20" y="160" font-family="Barlow Semi Condensed, sans-serif" font-weight="700" font-size="16" fill="#0d4f57" letter-spacing="2">BRENTWOOD RD</text>
+          <g transform="translate(300,20)"><rect width="150" height="76" fill="#0d4f57"/><rect x="14" y="26" width="70" height="50" fill="#083a40"/><rect x="96" y="26" width="40" height="30" fill="#f3ece1"/><rect y="0" width="150" height="16" fill="#f2735e"/></g>
+          <g transform="translate(366,4)"><path d="M10 0 C4 0 0 4.5 0 10 C0 18 10 28 10 28 C10 28 20 18 20 10 C20 4.5 16 0 10 0Z" fill="#b13f2c"/><circle cx="10" cy="10" r="4" fill="#fff"/></g>
+          <text x="300" y="14" font-family="Barlow Semi Condensed, sans-serif" font-weight="800" font-size="15" fill="#0d4f57">150</text>
+        </svg>
+      </div>
+    </div>
+    <div class="card">
+      <p class="eyebrow" data-i18n="q-e">Quick question?</p>
+      <h2 style="font-size:clamp(34px,3.6vw,48px)" data-i18n="q-h">Ask about a repair or a price.</h2>
+      <form class="demo qform" novalidate style="margin-top:var(--s4)">
+        <div class="two">
+          <div class="f"><label for="qn" data-i18n="fn">Name</label><input id="qn" name="name" required autocomplete="name"></div>
+          <div class="f"><label for="qp" data-i18n="fp">Phone</label><input id="qp" name="phone" type="tel" required autocomplete="tel"></div>
+        </div>
+        <div class="f"><label for="qc" data-i18n="fc">Car (year, make, model)</label><input id="qc" name="car"></div>
+        <div class="f"><label for="qm" data-i18n="fq">Your question</label><textarea id="qm" name="msg" required></textarea></div>
+        <p class="form-msg" role="alert"></p>
+        <div class="submit-row" style="margin-top:0">
+          <button class="btn btn-teal" type="submit" data-i18n="qsub">Send question</button>
+          <p class="demo-note" data-i18n="demo">Demo form. This is a website concept. Nothing is sent or saved.</p>
+        </div>
+      </form>
+      <div class="done" hidden tabindex="-1">
+        <h3 data-i18n="dn-h">Demo complete.</h3>
+        <p data-i18n="dn-q">This is a website concept, so nothing was sent or saved. On the finished site, your question would reach the shop.</p>
+        <button class="btn btn-coral" type="button" data-i18n="again">Start over</button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot">
+      <div><h3>Garcia's Auto Repair</h3><p data-i18n="ft">Same-day repairs, wheel alignment and parts installed in Bay Shore, NY.</p></div>
+      <div><h3 data-i18n="ct">Contact</h3><p>150 Brentwood Rd<br>Bay Shore, NY 11706<br><a href="tel:+16316665077">(631) 666-5077</a></p></div>
+      <div><h3 data-i18n="vh">Hours</h3><p data-i18n="vhd">Closes at 6 PM. Call for days and opening time.</p></div>
+    </div>
+    <div class="disc">
+      <p>Independent website concept designed by Lisette Colon. Not affiliated with or approved by Garcia's Auto Repair. Address, hours, rating and review quotes are from the business's public Google listing, checked October 2026.</p>
+      <p>Spanish translations are a sample and should be reviewed by the owner before launch. Service descriptions, including brakes and general repair, are a service list to confirm with the owner. Illustrations, the noise helper and online booking are sample features: booking days and times are invented for the demo and nothing is booked. Forms are demos and send nothing. One review quote has its spacing tidied. Concept by <a href="https://www.lisettecolon.com">Lisette Colon</a>.</p>
+    </div>
+  </div>
+</footer>
+<a class="sticky-call" href="tel:+16316665077" data-i18n="callm">Call (631) 666-5077</a>
+
+<script>
+(function(){
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var T={
+ en:{},
+ es:{
+  skip:'Saltar al contenido',nav1:'Servicios',nav2:'Ruidos',nav3:'Reservar',nav4:'Reseñas',nav5:'Visítenos',
+  hello:'Brentwood Road, Bay Shore',h1:'Arreglado hoy. <span>A un precio justo.</span>',
+  lede:'Reparaciones el mismo día, alineación de ruedas, y las piezas que su carro necesita, pedidas e instaladas. Gente amable, precios justos y trabajo a tiempo.',
+  call:'Llamar al (631) 666-5077',callm:'Llamar al (631) 666-5077',bookbtn:'Reservar una cita',
+  owner:'<b>Pregunte por Julio.</b> Los clientes dicen que es un dueño amable, y el mejor.',
+  p1:'en Google',p2:'reseñas en Google',p3b:'El mismo día',p3:'reparaciones',p4:'hora de cierre',
+  'sd-e':'Reparaciones el mismo día','sd-h':'Déjelo. Lléveselo arreglado.','sd-p':'Cuando el trabajo y las piezas lo permiten, Garcia\'s lo pone de vuelta en la calle el mismo día. Así funciona una visita.',
+  s1h:'Tráigalo',s1p:'Llame antes o reserve una hora, y deje el carro en Brentwood Rd.',s2h:'Buscamos el problema',s2p:'Un mecánico lo revisa y ve lo que necesita.',s3h:'Usted aprueba',s3p:'Primero escucha el precio. Pedimos e instalamos las piezas.',s4h:'Lléveselo',s4p:'Recójalo antes de las 6 PM. El mismo día cuando el trabajo lo permite.',
+  'sv-e':'Lo que arreglamos','sv-h':'Un taller para lo de todos los días.',wo:'Orden de trabajo',
+  t1h:'Reparaciones el mismo día',t1p:'Reparaciones comunes terminadas el mismo día, cuando las piezas están a mano o llegan rápido.',
+  t2h:'Alineación de ruedas',t2p:'¿El carro se va hacia un lado, o el volante queda torcido? Una alineación pone las ruedas derechas otra vez.',
+  t3h:'Piezas pedidas e instaladas',t3p:'No tiene que buscar piezas. El taller pide lo que su carro necesita y lo instala.',
+  t4h:'Frenos, ruidos y reparación general',t4p:'Chillidos, golpes y luces de advertencia. Tráigalo y reciba una respuesta clara.',
+  'al-h':'Por qué importa la alineación','al-p':'Vistas desde arriba, las ruedas que apuntan hacia adentro o hacia afuera gastan las llantas y hacen que el carro se desvíe. Toque para comparar.',al1:'Alineado',al2:'Hacia adentro',al3:'Hacia afuera',
+  'nz-e':'Herramienta de muestra','nz-h':'¿Qué es ese ruido?','nz-p':'Elija el sonido que se parece al suyo. Verá algunas causas comunes para mencionar cuando llame. Es información general, no un diagnóstico.',
+  n1:'Chillido al frenar',n1s:'Agudo, al detenerse',n2:'Golpe en los baches',n2s:'Un golpe desde abajo',n3:'Rechinido',n3s:'Metal contra metal',n4:'Tic tic',n4s:'Constante, se acelera con el motor',
+  whenq:'¿Cuándo es peor?',w1:'Mañanas frías',w2:'Al doblar',w3:'A alta velocidad',w4:'Todo el tiempo',likely:'Causas comunes',nzbook:'Reservar una revisión',
+  nzfine:'Solo información general. Un mecánico necesita ver el carro para saber qué tiene. Si los frenos se sienten suaves o el carro se desvía mucho, deje de manejar y llame.',
+  'ad-l':'Función adicional destacada en este concepto','ad-p':'Reservas en línea, desde $400',
+  'bk-h':'Elija la hora que le convenga.','bk-p':'Los clientes eligen el servicio, el día y la hora desde su teléfono, en inglés o en español. El taller recibe una solicitud clara en vez de una llamada perdida.',
+  i1:'Selector de servicio, día y hora según el horario real del taller',i2:'Las horas reservadas se cierran solas para que nadie reserve doble',i3:'Confirmación por texto o correo para el cliente',i4:'La solicitud llega al correo o teléfono del taller',i5:'Funciona en inglés y en español',
+  'bk-s':'<b>Función de muestra.</b> Los días y horas de esta demostración son inventados, y algunos aparecen ocupados. No se reserva nada. Una versión final usaría el horario real del taller.',
+  b1:'Servicio',b2:'Día',b3:'Hora (horas de muestra)',b4:'Sus datos',sv1:'Reparación general',sv2:'Alineación de ruedas',sv3:'Frenos o ruidos',sv4:'Instalar piezas',
+  fn:'Nombre',fp:'Teléfono',fc:'Carro (año, marca, modelo)',fq:'Su pregunta',bsub:'Pedir esta hora',demo:'Formulario de demostración. Este sitio es un concepto. No se envía ni se guarda nada.',
+  'dn-h':'Demostración completa.','dn-p':'Este sitio es un concepto. No se envió ni se guardó nada, y no se reservó ninguna cita.','dn-q':'Este sitio es un concepto, así que no se envió ni se guardó nada. En el sitio final, su pregunta llegaría al taller.',again:'Empezar de nuevo',
+  'rv-e':'De las reseñas en Google','rv-h':'Lo que dicen los vecinos.','rv-s':'Promedio de 177 reseñas en Google. Las citas aparecen en su inglés original.',
+  'vs-e':'Visite el taller',vp:'Teléfono',ct:'Contacto',vh:'Horario',vhd:'Cierra a las 6 PM. Llame para confirmar los días y la hora de apertura.',va:'Pregunte por',
+  'q-e':'¿Una pregunta rápida?','q-h':'Pregunte por una reparación o un precio.',qsub:'Enviar pregunta',ft:'Reparaciones el mismo día, alineación de ruedas e instalación de piezas en Bay Shore, NY.'
+ }
+};
+var lang='en';
+document.querySelectorAll('[data-i18n]').forEach(function(el){T.en[el.dataset.i18n]=el.innerHTML});
+var N={
+ squeal:{en:['Squeal when braking',[['Worn brake pads','Many pads have a small metal tab that squeals when they get thin.'],['Glazed pads or rotors','Hard stops or heat can leave a shiny surface that squeals.'],['Moisture or dust','A light squeal on damp mornings can fade after a few stops.']],'If the squeal turns into grinding, get it checked soon.'],
+  es:['Chillido al frenar',[['Pastillas de freno gastadas','Muchas pastillas tienen una pestaña de metal que chilla cuando están delgadas.'],['Pastillas o discos cristalizados','Frenadas fuertes o calor dejan una superficie brillante que chilla.'],['Humedad o polvo','Un chillido leve en mañanas húmedas puede desaparecer después de unas frenadas.']],'Si el chillido se vuelve un rechinido, hágalo revisar pronto.'],svc:'sv3'},
+ clunk:{en:['Clunk over bumps',[['Worn sway bar links','A common source of a knock over small bumps.'],['Ball joints or control arm bushings','Worn joints can clunk and make steering feel loose.'],['Struts or shocks','Tired struts can knock and make the car bounce.']],'Clunks often come with uneven tire wear. Ask about an alignment after the fix.'],
+  es:['Golpe en los baches',[['Bieletas de la barra estabilizadora','Una causa común de golpes en baches pequeños.'],['Rótulas o bujes','Las piezas gastadas pueden golpear y hacer que el volante se sienta flojo.'],['Amortiguadores','Amortiguadores cansados golpean y hacen que el carro rebote.']],'Los golpes suelen venir con desgaste disparejo de llantas. Pregunte por una alineación después.'],svc:'sv1'},
+ grind:{en:['Grinding',[['Brake pads worn to the metal','The most common cause. Waiting usually makes the repair bigger.'],['A stone or debris in the brake','Sometimes a small rock gets caught near the rotor.'],['Wheel bearing','A grinding or growling that changes with speed can point to a bearing.']],'Grinding from the brakes is a reason to call soon rather than later.'],
+  es:['Rechinido',[['Pastillas gastadas hasta el metal','La causa más común. Esperar suele hacer la reparación más grande.'],['Una piedra o basura en el freno','A veces una piedrita se queda atrapada cerca del disco.'],['Rodamiento de rueda','Un ruido que cambia con la velocidad puede venir de un rodamiento.']],'Un rechinido en los frenos es razón para llamar pronto.'],svc:'sv3'},
+ tick:{en:['Ticking',[['Low engine oil','Check the dipstick first. Low oil can make the top of the engine tick.'],['Valve train noise','Lifters or valves can tick, more so on a cold start.'],['Exhaust leak','A small leak near the engine can sound like a tick.']],'If the oil light comes on, stop and call before driving further.'],
+  es:['Tic tic',[['Poco aceite de motor','Revise la varilla primero. Con poco aceite el motor puede hacer tic tic.'],['Ruido de válvulas','Los buzos o válvulas hacen tic tic, más en arranques en frío.'],['Fuga de escape','Una pequeña fuga cerca del motor suena como un tic tic.']],'Si se prende la luz del aceite, deténgase y llame antes de seguir manejando.'],svc:'sv1'}
+};
+var W={en:{cold:'Worse on cold mornings often points to moisture on brakes or oil that has not warmed up yet.',turn:'Worse when turning can point to steering or suspension parts, or a CV joint.',speed:'Changing with speed can point to wheels, tires or bearings.',always:'Steady all the time? Mention when it started and if anything changed.'},
+       es:{cold:'Si es peor en mañanas frías, puede ser humedad en los frenos o aceite que todavía no se calienta.',turn:'Si es peor al doblar, puede venir de la dirección, la suspensión o una junta homocinética.',speed:'Si cambia con la velocidad, puede venir de las ruedas, las llantas o los rodamientos.',always:'¿Constante todo el tiempo? Mencione cuándo empezó y si algo cambió.'}};
+var cur='squeal',when=null;
+function renderNoise(){var d=N[cur][lang];document.getElementById('nzTitle').textContent=d[0];
+  var ol=document.getElementById('nzList');ol.innerHTML='';d[1].forEach(function(r){var li=document.createElement('li');var w=document.createElement('div');var b=document.createElement('b');b.textContent=r[0];var s=document.createElement('span');s.textContent=r[1];w.appendChild(b);w.appendChild(s);li.appendChild(w);ol.appendChild(li)});
+  document.getElementById('nzTip').textContent=when?W[lang][when]:d[2];}
+document.querySelectorAll('.sound').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.sound').forEach(function(x){x.setAttribute('aria-checked','false')});b.setAttribute('aria-checked','true');cur=b.dataset.n;renderNoise()})});
+document.querySelectorAll('.chips button').forEach(function(b){b.addEventListener('click',function(){var on=b.getAttribute('aria-pressed')==='true';document.querySelectorAll('.chips button').forEach(function(x){x.setAttribute('aria-pressed','false')});if(!on){b.setAttribute('aria-pressed','true');when=b.dataset.w}else when=null;renderNoise()})});
+document.getElementById('nzBook').addEventListener('click',function(){var r=document.getElementById(N[cur].svc);if(r)r.checked=true});
+
+// alignment
+var AL=[[0,0,'Straight: wheels point ahead','Derecho: las ruedas apuntan al frente'],[8,-8,'Toe in: fronts point toward each other','Hacia adentro: las ruedas se apuntan entre sí'],[-8,8,'Toe out: fronts point away','Hacia afuera: las ruedas apuntan hacia afuera']],al=0;
+function renderAl(){var a=AL[al];document.getElementById('wFL').setAttribute('transform','rotate('+a[0]+' 100 80)');document.getElementById('wFR').setAttribute('transform','rotate('+a[1]+' 260 80)');
+ document.getElementById('lL').setAttribute('transform','rotate('+a[0]+' 100 80)');document.getElementById('lR').setAttribute('transform','rotate('+a[1]+' 260 80)');
+ document.getElementById('alTxt').textContent=lang==='es'?a[3]:a[2];
+ document.querySelectorAll('[data-al]').forEach(function(b){b.setAttribute('aria-pressed',String(+b.dataset.al===al))})}
+document.querySelectorAll('[data-al]').forEach(function(b){b.addEventListener('click',function(){al=+b.dataset.al;renderAl()})});
+
+// booking days
+var DN={en:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],es:['Dom','Lun','Mar','Mié','Jue','Vie','Sáb']};
+var MN={en:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],es:['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic']};
+var days=[],d=new Date();d.setHours(12);while(days.length<10){d.setDate(d.getDate()+1);var w=d.getDay();if(w>0&&w<6)days.push(new Date(d))}
+var slots=['8:30 AM','9:30 AM','10:30 AM','11:30 AM','1:00 PM','2:00 PM','3:00 PM','4:00 PM'];
+function renderDays(){var box=document.getElementById('days'),sel=(box.querySelector('input:checked')||{}).value;box.innerHTML='';
+ days.forEach(function(x,i){var id='dy'+i;var div=document.createElement('div');div.className='opt';
+  div.innerHTML='<input type="radio" name="day" id="'+id+'" value="'+i+'"'+(i===0?' required':'')+(String(i)===sel?' checked':'')+'><label for="'+id+'"><small>'+DN[lang][x.getDay()]+'</small><b>'+x.getDate()+'</b><small>'+MN[lang][x.getMonth()]+'</small></label>';
+  box.appendChild(div)});
+ box.querySelectorAll('input').forEach(function(r){r.addEventListener('change',renderTimes)})}
+function renderTimes(){var box=document.getElementById('times'),dsel=(document.querySelector('#days input:checked')||{}).value,sel=(box.querySelector('input:checked')||{}).value;box.innerHTML='';
+ slots.forEach(function(s,i){var taken=dsel!==undefined&&((+dsel*3+i*5)%7===0);var id='tm'+i;var div=document.createElement('div');div.className='opt';
+  div.innerHTML='<input type="radio" name="time" id="'+id+'" value="'+s+'"'+(i===0?' required':'')+(taken?' disabled':'')+(s===sel&&!taken?' checked':'')+'><label for="'+id+'">'+s+'</label>';box.appendChild(div)})}
+renderDays();renderTimes();
+
+function setLang(l){lang=l;document.documentElement.lang=l;
+ document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.dataset.i18n;var v=T[l][k]!==undefined?T[l][k]:T.en[k];if(v!==undefined)el.innerHTML=v});
+ document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.lang===l))});
+ renderNoise();renderAl();renderDays();renderTimes();
+ try{localStorage.setItem('garcias-lang',l)}catch(e){}}
+document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang)})});
+var saved=null;try{saved=localStorage.getItem('garcias-lang')}catch(e){}
+setLang(saved==='es'?'es':'en');
+
+// menu
+var btn=document.querySelector('.menu-btn'),nav=document.getElementById('nav');
+btn.addEventListener('click',function(){var o=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!o));nav.classList.toggle('open',!o)});
+nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){btn.setAttribute('aria-expanded','false');nav.classList.remove('open')})});
+
+// forms
+document.querySelectorAll('form.demo').forEach(function(f){
+ var done=f.parentElement.querySelector('.done'),msg=f.querySelector('.form-msg');
+ f.addEventListener('submit',function(e){e.preventDefault();var first=null,missing=[];
+  f.querySelectorAll('input[type=radio][required]').forEach(function(r){if(!f.querySelector('input[name="'+r.name+'"]:checked')){missing.push(r.name);if(!first)first=r}});
+  f.querySelectorAll('input:not([type=radio])[required],textarea[required]').forEach(function(i){var v=i.value.trim(),bad=!v||(i.type==='tel'&&v.replace(/\D/g,'').length<10);i.setAttribute('aria-invalid',String(bad));if(bad&&!first)first=i});
+  if(first){msg.textContent=lang==='es'?'Por favor complete lo que falta. El teléfono necesita 10 dígitos.':(missing.length?'Please pick a service, day and time, and fill in the highlighted fields.':'Please fill in the highlighted fields. Phone needs 10 digits.');first.focus();return}
+  msg.textContent='';
+  var sum=done.querySelector('.summary');
+  if(sum){var sv=f.querySelector('input[name=svc]:checked'),dy=days[+f.querySelector('input[name=day]:checked').value],tm=f.querySelector('input[name=time]:checked').value;
+   sum.textContent=(lang==='es'?'Solicitud de muestra: ':'Sample request: ')+document.querySelector('label[for='+sv.id+']').textContent+', '+DN[lang][dy.getDay()]+' '+dy.getDate()+' '+MN[lang][dy.getMonth()]+', '+tm+'.'}
+  f.hidden=true;done.hidden=false;done.focus()});
+ done.querySelector('button').addEventListener('click',function(){f.reset();f.querySelectorAll('[aria-invalid]').forEach(function(i){i.removeAttribute('aria-invalid')});if(f.id==='bookForm'){renderDays();renderTimes()}f.hidden=false;done.hidden=true;var q=f.querySelector('input:not([type=radio]),textarea');q.focus()});
+});
+})();
+</script>
+</body>
+</html>
