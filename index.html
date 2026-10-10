@@ -306,6 +306,15 @@ footer.site a{color:var(--white)}
   .sticky-call{display:flex;position:fixed;left:var(--s3);right:var(--s3);bottom:var(--s3);z-index:50;min-height:56px;border-radius:999px;align-items:center;justify-content:center;background:var(--coral);color:var(--teal-dd);text-decoration:none;font:700 21px var(--head);box-shadow:0 12px 30px rgba(6,43,48,.35)}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* booking balance */
+.summ{background:#fff;border:1px solid var(--line,#e6dccb);border-radius:18px;padding:1.2rem 1.3rem;margin:1.4rem 0}
+.summ .sh{display:block;font-weight:800;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-bottom:.6rem}
+.summ dl{margin:0;display:grid;gap:0}
+.summ dl div{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-top:1px solid rgba(0,0,0,.08)}
+.summ dt{opacity:.7}.summ dd{margin:0;font-weight:700;text-align:right}
+.summ dd.e{opacity:.45;font-weight:500}
+@media(min-width:960px){.book-grid{align-items:stretch}.bk-left{display:flex;flex-direction:column}.bk-left .summ{margin-top:auto}.bk-left .sample-note{margin-bottom:0}}
 </style>
 </head>
 <body>
@@ -483,7 +492,7 @@ footer.site a{color:var(--white)}
   <div class="wrap">
     <div class="addon"><span class="lbl" data-i18n="ad-l">Featured add-on in this concept</span><span class="price" data-i18n="ad-p">Online booking, from $400</span></div>
     <div class="book-grid">
-      <div>
+      <div class="bk-left">
         <h2 data-i18n="bk-h">Pick a time that works for you.</h2>
         <p class="intro" data-i18n="bk-p">Customers choose the service, the day and the time, from their phone, in English or Spanish. The shop gets a clean request instead of a missed call.</p>
         <ul class="inc">
@@ -493,6 +502,7 @@ footer.site a{color:var(--white)}
           <li data-i18n="i4">Request sent to the shop's email or phone</li>
           <li data-i18n="i5">Works in English and Spanish</li>
         </ul>
+        <div class="summ" aria-live="polite"><span class="sh">Your request</span><dl><div><dt>Service</dt><dd id="smS">Pick a service</dd></div><div><dt>Day</dt><dd id="smD">Pick a day</dd></div><div><dt>Time</dt><dd id="smT">Pick a time</dd></div></dl></div>
         <p class="sample-note" data-i18n="bk-s"><b>Sample feature.</b> Days and time slots here are made up for the demo, and some are shown as taken. Nothing is booked. A finished version would use the shop's real schedule.</p>
       </div>
       <div>
@@ -544,10 +554,10 @@ footer.site a{color:var(--white)}
     <p class="eyebrow" data-i18n="rv-e">From Google reviews</p>
     <h2 data-i18n="rv-h">What the neighbors say.</h2>
     <div class="bubbles">
-      <figure class="bub b1" style="margin:0"><blockquote lang="en">Excellent service and friendly staff Prices are comparable</blockquote><figcaption><cite>Google review</cite></figcaption></figure>
-      <figure class="bub b2" style="margin:0"><blockquote lang="en">Very fair in pricing and got work done in a timely manner.</blockquote><figcaption><cite>Google review</cite></figcaption></figure>
-      <figure class="bub b3" style="margin:0"><blockquote lang="en">Good price, friendly owner, Julio is the best</blockquote><figcaption><cite>Google review</cite></figcaption></figure>
-      <div class="rev-sum"><b>4.5</b><p data-i18n="rv-s">Average from 177 Google reviews. Quotes are shown in their original English.</p></div>
+      <figure class="bub b1" style="margin:0"><blockquote lang="en">Friendly staff and fair prices.</blockquote><figcaption><cite>Theme from Google reviews</cite></figcaption></figure>
+      <figure class="bub b2" style="margin:0"><blockquote lang="en">Fair pricing and work done on time.</blockquote><figcaption><cite>Theme from Google reviews</cite></figcaption></figure>
+      <figure class="bub b3" style="margin:0"><blockquote lang="en">A friendly owner customers ask for by name.</blockquote><figcaption><cite>Theme from Google reviews</cite></figcaption></figure>
+      <div class="rev-sum"><b>4.5</b><p data-i18n="rv-s">Average from 177 Google reviews. Themes paraphrased from the reviews.</p></div>
     </div>
   </div>
 </section>
@@ -608,7 +618,7 @@ footer.site a{color:var(--white)}
       <div><h3 data-i18n="vh">Hours</h3><p data-i18n="vhd">Closes at 6 PM. Call for days and opening time.</p></div>
     </div>
     <div class="disc">
-      <p>Independent website concept designed by Lisette Colon. Not affiliated with or approved by Garcia's Auto Repair. Address, hours, rating and review quotes are from the business's public Google listing, checked October 2026.</p>
+      <p>Independent website concept designed by Lisette Colon. Not affiliated with or approved by Garcia's Auto Repair. Address, hours, rating and review themes are from the business's public Google listing, checked October 2026.</p>
       <p>Spanish translations are a sample and should be reviewed by the owner before launch. Service descriptions, including brakes and general repair, are a service list to confirm with the owner. Illustrations, the noise helper and online booking are sample features: booking days and times are invented for the demo and nothing is booked. Forms are demos and send nothing. One review quote has its spacing tidied. Concept by <a href="https://www.lisettecolon.com">Lisette Colon</a>.</p>
     </div>
   </div>
@@ -725,6 +735,12 @@ document.querySelectorAll('form.demo').forEach(function(f){
  done.querySelector('button').addEventListener('click',function(){f.reset();f.querySelectorAll('[aria-invalid]').forEach(function(i){i.removeAttribute('aria-invalid')});if(f.id==='bookForm'){renderDays();renderTimes()}f.hidden=false;done.hidden=true;var q=f.querySelector('input:not([type=radio]),textarea');q.focus()});
 });
 })();
+</script>
+<script>
+(function(){var f=document.getElementById('bookForm');if(!f)return;
+function lab(n){var i=f.querySelector('input[name="'+n+'"]:checked');if(!i)return '';var l=f.querySelector('label[for="'+i.id+'"]');return l?l.textContent.replace(/\s+/g,' ').trim():i.value;}
+function up(){[['svc','smS','Pick a service'],['day','smD','Pick a day'],['time','smT','Pick a time']].forEach(function(a){var v=lab(a[0]),d=document.getElementById(a[1]);d.textContent=v||a[2];d.classList.toggle('e',!v);});}
+f.addEventListener('change',up);f.addEventListener('click',function(){setTimeout(up,0)});up();})();
 </script>
 </body>
 </html>
